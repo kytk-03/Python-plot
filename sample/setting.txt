@@ -1,0 +1,3 @@
+Folder Path,File Name,Amplitude,Wait Time
+Time,cos x,sin x
+Time/cos x,Time/sin x,sin x/cos x

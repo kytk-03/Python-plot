@@ -1,0 +1,40 @@
+{
+  "name": "react_electron",
+  "version": "0.1.0",
+  "private": true,
+  "main": ".tmp/main/index.js",
+  "homepage": "./",
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "classnames": "^2.2.6",
+    "plotly.js": "^1.44.2",
+    "prop-types": "^15.6.2",
+    "python-shell": "^1.0.7",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-plotly.js": "^2.2.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.3"
+  },
+  "scripts": {
+    "start": "electron .",
+    "watch": "babel --watch --out-dir .tmp src"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "electron": "^4.0.5",
+    "electron-builder": "^20.38.5"
+  }
+}
