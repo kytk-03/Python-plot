@@ -1,4 +1,4 @@
-Python-plot
+﻿Python-plot
 ====
 
 ## Overview
@@ -13,7 +13,7 @@ Python-plot
 ![Demo](./demo/demo_start.png)
 
 初回起動時はsample画面が表示されます。
-![Demo](./demo/Demo.png)
+![Demo](./demo/demo.png)
 
 このプログラムを用いて実際の測定を行うには、setting.txtとmeasurement.pyの2つのファイルが必要となります。
 sampleのsetting.txtとmeasurement.pyは以下のようになっています。
