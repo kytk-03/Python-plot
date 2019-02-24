@@ -57,8 +57,10 @@ var Run = function (_Component) {
         try {
             _fs2.default.statSync(".path");
         } catch (error) {
-            _this.pythonpath = _electron.remote.dialog.showOpenDialog({ title: "Please select the Python interpreter.", properties: ['openFile'], filters: [{ name: "", "extensions": ["exe"] }] });
-            _fs2.default.writeFileSync("./.path", _this.pythonpath, { encoding: "utf-8" });
+            _this.pythonpath = _electron.remote.dialog.showOpenDialog({ title: "Please select the Python interpreter.", properties: ['openFile'] });
+            if (_this.pythonpath) {
+                _fs2.default.writeFileSync("./.path", _this.pythonpath, { encoding: "utf-8" });
+            }
         }
         _this.pythonPath = _fs2.default.readFileSync("./.path", { encoding: "utf-8" });
         _this.folderPath = _fs2.default.readFileSync(".experiment", { encoding: "utf-8" }).replace(/\r?\n/g, '');

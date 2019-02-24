@@ -14,8 +14,10 @@ export default class  Run extends Component{
         try {
             fs.statSync(".path");
         } catch(error) {
-            this.pythonpath = remote.dialog.showOpenDialog({title: "Please select the Python interpreter.",properties: ['openFile'], filters: [{name: "", "extensions": ["exe"]}]});
-            fs.writeFileSync("./.path", this.pythonpath, {encoding:"utf-8"});
+            this.pythonpath = remote.dialog.showOpenDialog({title: "Please select the Python interpreter.",properties: ['openFile']});
+            if(this.pythonpath){
+                fs.writeFileSync("./.path", this.pythonpath, {encoding:"utf-8"});
+            }
         }
         this.pythonPath = fs.readFileSync("./.path", {encoding: "utf-8"});
         this.folderPath = fs.readFileSync(".experiment", {encoding: "utf-8"}).replace(/\r?\n/g, '');

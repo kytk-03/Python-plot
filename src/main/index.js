@@ -42,7 +42,9 @@ function installMenu() {
                     accelerator: 'CmdOrCtrl+I',
                     click(item, focusedWindow) {
                         let experiment = dialog.showOpenDialog({properties: ['openDirectory']});
-                        fs.writeFileSync(".experiment", experiment, "utf-8");
+                        if(experiment){
+                            fs.writeFileSync(".experiment", experiment, "utf-8");
+                        }
                         if (focusedWindow) focusedWindow.reload();
                     }
                 },
@@ -50,8 +52,10 @@ function installMenu() {
                     label: 'Change Python path',
                     accelerator: 'CmdOrCtrl+e',
                     click(item, focusedWindow) {
-                        let pythonPath = dialog.showOpenDialog({title: "Please select the Python interpreter.",properties: ['openFile'], filters: [{name: "", "extensions": ["exe"]}]});
-                        fs.writeFileSync("./.path", pythonPath, {encoding:"utf-8"});
+                        let pythonPath = dialog.showOpenDialog({title: "Please select the Python interpreter.",properties: ['openFile']});
+                        if(pythonPath) {
+                            fs.writeFileSync("./.path", pythonPath, {encoding: "utf-8"});
+                        }
                         if (focusedWindow) focusedWindow.reload();
                     }
                 },

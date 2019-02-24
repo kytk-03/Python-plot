@@ -46,15 +46,19 @@ function installMenu() {
             accelerator: 'CmdOrCtrl+I',
             click: function click(item, focusedWindow) {
                 var experiment = _electron.dialog.showOpenDialog({ properties: ['openDirectory'] });
-                _fs2.default.writeFileSync(".experiment", experiment, "utf-8");
+                if (experiment) {
+                    _fs2.default.writeFileSync(".experiment", experiment, "utf-8");
+                }
                 if (focusedWindow) focusedWindow.reload();
             }
         }, {
             label: 'Change Python path',
             accelerator: 'CmdOrCtrl+e',
             click: function click(item, focusedWindow) {
-                var pythonPath = _electron.dialog.showOpenDialog({ title: "Please select the Python interpreter.", properties: ['openFile'], filters: [{ name: "", "extensions": ["exe"] }] });
-                _fs2.default.writeFileSync("./.path", pythonPath, { encoding: "utf-8" });
+                var pythonPath = _electron.dialog.showOpenDialog({ title: "Please select the Python interpreter.", properties: ['openFile'] });
+                if (pythonPath) {
+                    _fs2.default.writeFileSync("./.path", pythonPath, { encoding: "utf-8" });
+                }
                 if (focusedWindow) focusedWindow.reload();
             }
         }, {
