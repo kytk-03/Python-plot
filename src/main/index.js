@@ -6,7 +6,7 @@ let win;
 
 function createWindow() {
     const size = screen.getPrimaryDisplay().size;
-    win = new BrowserWindow({width: size.width, height: size.height, 'icon': __dirname + '/../../public/icon.ico'});
+    win = new BrowserWindow({width: size.width, height: size.height, 'icon': __dirname + '/../../public/icon.png'});
     win.loadURL(`file://${__dirname}/../../public/index.html`);
     win.on("close", () => {
         win = null
@@ -44,8 +44,8 @@ function installMenu() {
                         let experiment = dialog.showOpenDialog({properties: ['openDirectory']});
                         if(experiment){
                             fs.writeFileSync(".experiment", experiment, "utf-8");
+                            if (focusedWindow) focusedWindow.reload();
                         }
-                        if (focusedWindow) focusedWindow.reload();
                     }
                 },
                 {
@@ -55,8 +55,8 @@ function installMenu() {
                         let pythonPath = dialog.showOpenDialog({title: "Please select the Python interpreter.",properties: ['openFile']});
                         if(pythonPath) {
                             fs.writeFileSync("./.path", pythonPath, {encoding: "utf-8"});
+                            if (focusedWindow) focusedWindow.reload();
                         }
-                        if (focusedWindow) focusedWindow.reload();
                     }
                 },
                 {

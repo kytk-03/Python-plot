@@ -12,7 +12,7 @@ var win = void 0;
 
 function createWindow() {
     var size = _electron.screen.getPrimaryDisplay().size;
-    win = new _electron.BrowserWindow({ width: size.width, height: size.height, 'icon': __dirname + '/../../public/icon.ico' });
+    win = new _electron.BrowserWindow({ width: size.width, height: size.height, 'icon': __dirname + '/../../public/icon.png' });
     win.loadURL('file://' + __dirname + '/../../public/index.html');
     win.on("close", function () {
         win = null;
@@ -48,8 +48,8 @@ function installMenu() {
                 var experiment = _electron.dialog.showOpenDialog({ properties: ['openDirectory'] });
                 if (experiment) {
                     _fs2.default.writeFileSync(".experiment", experiment, "utf-8");
+                    if (focusedWindow) focusedWindow.reload();
                 }
-                if (focusedWindow) focusedWindow.reload();
             }
         }, {
             label: 'Change Python path',
@@ -58,8 +58,8 @@ function installMenu() {
                 var pythonPath = _electron.dialog.showOpenDialog({ title: "Please select the Python interpreter.", properties: ['openFile'] });
                 if (pythonPath) {
                     _fs2.default.writeFileSync("./.path", pythonPath, { encoding: "utf-8" });
+                    if (focusedWindow) focusedWindow.reload();
                 }
-                if (focusedWindow) focusedWindow.reload();
             }
         }, {
             label: 'Quit',
