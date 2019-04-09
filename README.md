@@ -5,7 +5,7 @@
 このプログラムは、Pythonを用いて測定等のグラフ描画が必要なプログラムを書く際、グラフ描画と必要なパラメータの取得が簡単に行えるようにするためのプログラムです。
 
 ## Install
-[Rerease](https://github.com/kytk-03/Python-plot/releases)から最新版をダウンロードしてください。
+[Releases](https://github.com/kytk-03/Python-plot/releases)から最新版をダウンロードしてください。
 
 ## Usage
 ダウンロードしたzipファイルを展開し、Python-plot.exeを起動してください。
